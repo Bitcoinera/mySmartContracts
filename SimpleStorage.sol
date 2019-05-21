@@ -4,5 +4,9 @@ contract SimpleStorage {
     string public data;
     function setData(string memory _data) public {
         data = _data;
+    }
+
+    function get() view public returns(string memory) {
+        return data;
     } 
 }
