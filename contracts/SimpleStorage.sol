@@ -11,8 +11,8 @@ contract SimpleStorage {
     uint256 favoriteNumber;
     Person[] public people;
 
-    mapping(string => uint256) nameToFavoriteNumber;
-    mapping(uint256 => string) favoriteNumberToName;
+    mapping(string => uint256) public nameToFavoriteNumber;
+    mapping(uint256 => string) public favoriteNumberToName;
 
     function store(uint256 _favoriteNumber) public {
         favoriteNumber = _favoriteNumber;
@@ -32,8 +32,5 @@ contract SimpleStorage {
     function getFavoriteNumber() public view returns(uint256) {
         return favoriteNumber;
     }
-
-    function getNameWithNumber(uint256 _favoriteNumber) public view returns(string memory) {
-        return favoriteNumberToName[_favoriteNumber];
-    }
 }
+
