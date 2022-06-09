@@ -48,4 +48,13 @@ contract FundMe {
         require(msg.sender == owner);
         _;
     }
+
+    function withdraw() payable onlyOwner public {
+        payable(msg.sender).transfer(address(this).balance);
+        for (uint256 funderIndex=0; funderIndex < funders.length; funderIndex++){
+            address funder = funders[funderIndex];
+            addressToAmountFunded[funder] = 0;
+        }
+        funders = new address[](0);
+    }
 }
